@@ -10,4 +10,5 @@ data['Streams'] = data['Streams'].str.replace(',', '', regex=True).astype(float)
 somas_por_artista = data.groupby('Artist', as_index=False)['Streams'].sum()
 top_50_artistas_ordenados = somas_por_artista.sort_values(by='Streams', ascending=False).head(50)
 
-print(top_50_artistas_ordenados)
+#Loading:
+top_50_artistas_ordenados.to_excel('top_50_artistas_streams.xlsx', index=False)
